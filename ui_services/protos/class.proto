@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package class;
+
+service ClassController {
+    rpc List(ClassListRequest) returns (ClassList) {}
+    rpc GetCommonClasses(ClassId) returns (ClassList) {}
+    rpc IsExist(ClassId) returns(IsExistResponse) {}
+}
+
+message ClassList {
+    repeated string class_id = 1;    
+}
+
+message ClassListRequest {
+    uint64 user_id = 1;
+}
+
+message ClassId{
+    string class_id = 1;
+}
+
+message IsExistResponse{
+    bool is_exist = 1;
+}
